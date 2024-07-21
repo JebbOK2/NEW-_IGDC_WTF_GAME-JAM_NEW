@@ -8,6 +8,7 @@ public class playerInv : MonoBehaviour
     [Header("general")]
     public List<itemType> invlist;
     public int selecteditem = 0;
+    public int ElementsFound=0;
     public float playerReach;
     [SerializeField] GameObject throwItemGO;
 
@@ -22,6 +23,9 @@ public class playerInv : MonoBehaviour
     [SerializeField] GameObject Axeitem;
     [SerializeField] GameObject SciFiitem;
     [SerializeField] GameObject paper;
+    [SerializeField] GameObject element1;
+    [SerializeField] GameObject element2;
+    [SerializeField] GameObject element3;
 
     [SerializeField] Camera cam;
 
@@ -33,6 +37,9 @@ public class playerInv : MonoBehaviour
     [SerializeField] GameObject axe_prefab;
     [SerializeField] GameObject sciFi_prefab;
     [SerializeField] GameObject paper_prefab;
+    [SerializeField] GameObject element1_prefab;
+    [SerializeField] GameObject element2_prefab;
+    [SerializeField] GameObject element3_prefab;
 
     [Space(20)]
     [Header("UI")]
@@ -57,11 +64,18 @@ public class playerInv : MonoBehaviour
         itemSetActive.Add(itemType.Axe, Axeitem);
         itemSetActive.Add(itemType.SciFiSword, SciFiitem);
         itemSetActive.Add(itemType.paper, paper);
+        itemSetActive.Add(itemType.element1, element1);
+        itemSetActive.Add(itemType.element2, element2);
+        itemSetActive.Add(itemType.element3, element3);
 
         itemInstantiate.Add(itemType.Sword, sword_prefab);
         itemInstantiate.Add(itemType.Axe, axe_prefab);
         itemInstantiate.Add(itemType.SciFiSword, sciFi_prefab);
         itemInstantiate.Add(itemType.paper, paper_prefab);
+        itemInstantiate.Add(itemType.element1, element1);
+        itemInstantiate.Add(itemType.element2, element2);
+        itemInstantiate.Add(itemType.element3, element3);
+
 
         NewItemSelected();
     }
@@ -90,8 +104,13 @@ public class playerInv : MonoBehaviour
                 {
                     invlist.Add(hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type);
                     item.DisableOutline();
+                    if(hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element1 || hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element2 || hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element3)
+                    {
+                        ElementsFound += 1;
+                    }
                     item.PickItem(); //just destroy from item pick script
                     currentOutlinedItem = null;
+                    
                 }
             }
             else
@@ -191,6 +210,9 @@ public class playerInv : MonoBehaviour
         Sworditem.SetActive(false);
         SciFiitem.SetActive(false);
         paper.SetActive(false);
+        element1.SetActive(false);
+        element2.SetActive(false);
+        element3.SetActive(false);
         if (invlist.Count > 0)
         {
             selectedItemObject = itemSetActive[invlist[selecteditem]];

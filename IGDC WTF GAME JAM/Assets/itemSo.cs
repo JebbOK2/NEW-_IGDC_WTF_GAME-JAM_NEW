@@ -13,5 +13,5 @@ public class itemSo : ScriptableObject
     public bool isPaper;
 }
 
-public enum itemType { Sword, Axe, Daggar, SciFiSword, paper}
+public enum itemType { Sword, Axe, Daggar, SciFiSword, paper, element1, element2, element3}
  
