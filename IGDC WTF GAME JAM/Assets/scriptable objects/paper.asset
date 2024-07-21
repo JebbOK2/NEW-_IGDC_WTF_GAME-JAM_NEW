@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: paper
   m_EditorClassIdentifier: 
   cooldown: 0
-  item_type: 0
-  item_sprite: {fileID: 0}
-  isPaper: 0
+  item_type: 4
+  item_sprite: {fileID: 21300000, guid: 278498d327d675348bb1f5005f64446a, type: 3}
+  isPaper: 1
