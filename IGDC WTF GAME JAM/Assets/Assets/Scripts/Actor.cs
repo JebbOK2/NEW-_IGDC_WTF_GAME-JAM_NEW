@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
-    int currentHealth;
+    public int currentHealth;
     public int maxHealth;
 
     void Awake()
@@ -24,6 +24,6 @@ public class Actor : MonoBehaviour
     {
         // Death function
         // TEMPORARY: Destroy Object
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

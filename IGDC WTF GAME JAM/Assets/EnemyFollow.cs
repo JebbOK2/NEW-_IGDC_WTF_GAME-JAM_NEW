@@ -12,11 +12,14 @@ public class EnemyFollow : MonoBehaviour
     private Vector3 lastPosition;
     public float movementThreshold = 0.01f; 
     public bool ismoving;
+    //private Rigidbody[] rigidbodies;
+    public Actor actor;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         lastPosition = transform.position;
+        //rigidbodies = GetComponentsInChildren<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -37,5 +40,27 @@ public class EnemyFollow : MonoBehaviour
             ismoving = false;
             //lastPosition = transform.position;
         }
+        /*if(actor.currentHealth == 0||actor.currentHealth <= 0)
+        {
+            EnableRagdoll();
+        }
+        else
+        {
+            DisableRagdoll();
+        }*/
     }
+    /*public void DisableRagdoll()
+    {
+        foreach(var rigidbody in rigidbodies)
+        {
+            rigidbody.isKinematic = true;
+        }
+    }
+    public void EnableRagdoll()
+    {
+        foreach(var rigidbody in rigidbodies)
+        {
+            rigidbody.isKinematic = false;
+        }
+    }*/
 }
