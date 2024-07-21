@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Animator animator;
     AudioSource audioSource;
+    public playerInv inv;
 
     [Header("Controller")]
     public float moveSpeed = 5;
@@ -190,10 +191,14 @@ public class PlayerController : MonoBehaviour
     {
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
         { 
-            HitTarget(hit.point);
+            if(inv.invlist.Count>0)
+            {
+                HitTarget(hit.point);
 
-            if(hit.transform.TryGetComponent<Actor>(out Actor T))
-            { T.TakeDamage(attackDamage); }
+                if(hit.transform.TryGetComponent<Actor>(out Actor T))
+                { T.TakeDamage(attackDamage); }
+            }
+            
         } 
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19764,6 +19764,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1272979298}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275576985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4174562265219594717, guid: 2ca140b948b09964eb60a21cebff4e0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2395195022175817897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1276265923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32680,6 +32686,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2395195022175817897}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1788623314734492028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275576985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01eeb5abefb437c49b40bb54734e4cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
 --- !u!1001 &1992759206037430003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32824,6 +32844,11 @@ PrefabInstance:
     - target: {fileID: 4174562265219594717, guid: 2ca140b948b09964eb60a21cebff4e0c,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174562265219594717, guid: 2ca140b948b09964eb60a21cebff4e0c,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4174562265219594718, guid: 2ca140b948b09964eb60a21cebff4e0c,
@@ -33009,6 +33034,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 373148107817791978, guid: 1a311e014b488cf42a7aa07fe321bc94,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1788623314734492028}
     - target: {fileID: 2101141547578736300, guid: 1a311e014b488cf42a7aa07fe321bc94,
         type: 3}
       propertyPath: m_RootOrder
