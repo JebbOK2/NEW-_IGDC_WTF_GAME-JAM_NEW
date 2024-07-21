@@ -53,6 +53,7 @@ public class playerInv : MonoBehaviour
         itemInstantiate.Add(itemType.Sword, sword_prefab);
         itemInstantiate.Add(itemType.Axe, axe_prefab);
         itemInstantiate.Add(itemType.SciFiSword, sciFi_prefab);
+
         NewItemSelected();
     }
 
@@ -104,7 +105,7 @@ public class playerInv : MonoBehaviour
             pickupText.SetActive(false);
         }
 
-        if (Input.GetKeyDown(throwItemKey) && invlist.Count > 1)
+        if (Input.GetKeyDown(throwItemKey) && invlist.Count > 0)
         {
             Instantiate(itemInstantiate[invlist[selecteditem]], position: throwItemGO.transform.position, new Quaternion());
             invlist.RemoveAt(selecteditem);
@@ -165,9 +166,11 @@ public class playerInv : MonoBehaviour
         Axeitem.SetActive(false);
         Sworditem.SetActive(false);
         SciFiitem.SetActive(false);
-
-        GameObject selectedItemObject = itemSetActive[invlist[selecteditem]];
-        selectedItemObject.SetActive(true);
+        if (invlist.Count > 0)
+        {
+            GameObject selectedItemObject = itemSetActive[invlist[selecteditem]];
+            selectedItemObject.SetActive(true);
+        }
     }
 }
 
