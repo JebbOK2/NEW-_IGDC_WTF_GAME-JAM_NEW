@@ -189,17 +189,21 @@ public class PlayerController : MonoBehaviour
 
     void AttackRaycast()
     {
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
-        { 
-            if(inv.invlist.Count>0)
-            {
+        
+        
+            if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
+            { 
+            
+            
                 HitTarget(hit.point);
 
                 if(hit.transform.TryGetComponent<Actor>(out Actor T))
                 { T.TakeDamage(attackDamage); }
-            }
             
-        } 
+            
+            }    
+        
+        
     }
 
     void HitTarget(Vector3 pos)
