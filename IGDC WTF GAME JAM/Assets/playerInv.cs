@@ -106,6 +106,7 @@ public class playerInv : MonoBehaviour
                     item.DisableOutline();
                     if(hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element1 || hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element2 || hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element3)
                     {
+                        Debug.Log("qqqqqqqqqqqqqqq");
                         ElementsFound += 1;
                     }
                     item.PickItem(); //just destroy from item pick script
