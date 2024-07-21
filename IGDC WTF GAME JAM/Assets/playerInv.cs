@@ -17,10 +17,11 @@ public class playerInv : MonoBehaviour
     [SerializeField] KeyCode pickItemKey;
 
     [Space(20)]
-    [Header("item gameobjects")]
+    [Header("item gameobjects")] // in hand
     [SerializeField] GameObject Sworditem;
     [SerializeField] GameObject Axeitem;
     [SerializeField] GameObject SciFiitem;
+    [SerializeField] GameObject paper;
 
     [SerializeField] Camera cam;
 
@@ -31,12 +32,17 @@ public class playerInv : MonoBehaviour
     [SerializeField] GameObject sword_prefab;
     [SerializeField] GameObject axe_prefab;
     [SerializeField] GameObject sciFi_prefab;
+    [SerializeField] GameObject paper_prefab;
 
     [Space(20)]
     [Header("UI")]
     [SerializeField] Image[] InvSlotImage = new Image[6];
     [SerializeField] Image[] InvBGImage = new Image[6];
     [SerializeField] Sprite emptySlotSprite;
+    [SerializeField] GameObject imagePaper;
+
+    
+    private GameObject selectedItemObject;
 
     private Dictionary<itemType, GameObject> itemSetActive = new Dictionary<itemType, GameObject>() { };
     private Dictionary<itemType, GameObject> itemInstantiate = new Dictionary<itemType, GameObject>() { };
@@ -46,13 +52,16 @@ public class playerInv : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //setactive in hand
         itemSetActive.Add(itemType.Sword, Sworditem);
         itemSetActive.Add(itemType.Axe, Axeitem);
         itemSetActive.Add(itemType.SciFiSword, SciFiitem);
+        itemSetActive.Add(itemType.paper, paper);
 
         itemInstantiate.Add(itemType.Sword, sword_prefab);
         itemInstantiate.Add(itemType.Axe, axe_prefab);
         itemInstantiate.Add(itemType.SciFiSword, sciFi_prefab);
+        itemInstantiate.Add(itemType.paper, paper_prefab);
 
         NewItemSelected();
     }
@@ -159,6 +168,21 @@ public class playerInv : MonoBehaviour
             selecteditem = 5;
             NewItemSelected();
         }
+        if (selectedItemObject != null && selectedItemObject.name == "paper")
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                imagePaper.SetActive(true);
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                imagePaper.SetActive(false);
+            }
+        }
+        else
+        {
+            imagePaper.SetActive(false);
+        }
     }
 
     public void NewItemSelected()
@@ -166,9 +190,10 @@ public class playerInv : MonoBehaviour
         Axeitem.SetActive(false);
         Sworditem.SetActive(false);
         SciFiitem.SetActive(false);
+        paper.SetActive(false);
         if (invlist.Count > 0)
         {
-            GameObject selectedItemObject = itemSetActive[invlist[selecteditem]];
+            selectedItemObject = itemSetActive[invlist[selecteditem]];
             selectedItemObject.SetActive(true);
         }
     }

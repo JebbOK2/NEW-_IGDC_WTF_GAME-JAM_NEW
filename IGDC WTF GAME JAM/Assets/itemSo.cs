@@ -10,7 +10,8 @@ public class itemSo : ScriptableObject
     public float cooldown;
     public itemType item_type;
     public Sprite item_sprite;
+    public bool isPaper;
 }
 
-public enum itemType { Sword, Axe, Daggar, SciFiSword}
+public enum itemType { Sword, Axe, Daggar, SciFiSword, paper}
  
