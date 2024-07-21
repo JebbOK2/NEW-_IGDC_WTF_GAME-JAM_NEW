@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     public float sensitivity;
 
+    
+
     float xRotation = 0f;
 
     void Awake()
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        
     }
 
     void Update()
