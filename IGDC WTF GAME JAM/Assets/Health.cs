@@ -24,4 +24,13 @@ public class Health : MonoBehaviour
             SceneManager.LoadScene(3);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Health")
+        {
+            currentHealth =  maxHealth;
+            Destroy(other.gameObject);
+        }
+        
+    }
 }
