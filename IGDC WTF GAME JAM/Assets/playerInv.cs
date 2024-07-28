@@ -82,7 +82,7 @@ public class playerInv : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   //pickup item
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
@@ -104,6 +104,7 @@ public class playerInv : MonoBehaviour
                 {
                     invlist.Add(hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type);
                     item.DisableOutline();
+                    //Time machine elements
                     if(hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element1 || hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element2 || hitInfo.collider.GetComponent<itemPickable>().itemScriptable.item_type == itemType.element3)
                     {
                         Debug.Log("qqqqqqqqqqqqqqq");
@@ -134,6 +135,7 @@ public class playerInv : MonoBehaviour
             pickupText.SetActive(false);
         }
 
+        //drop item
         if (Input.GetKeyDown(throwItemKey) && invlist.Count > 0)
         {
             Instantiate(itemInstantiate[invlist[selecteditem]], position: throwItemGO.transform.position, new Quaternion());
@@ -145,7 +147,7 @@ public class playerInv : MonoBehaviour
             NewItemSelected();
         }
 
-        // UI
+        // Inventry UI
         for (int i = 0; i < 6; i++)
         {
             if (i < invlist.Count)
